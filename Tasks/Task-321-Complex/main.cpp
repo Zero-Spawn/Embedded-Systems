@@ -15,11 +15,13 @@ int main()
     //Subtract: Added and tested 
     ComplexNumber sc1(5.0, 7.0);
     ComplexNumber sc2(2.0, 3.0);
+   //Copied Values 
     ComplexNumber sc1_copy = sc1;
     ComplexNumber sc2_copy = sc2;
+    
     sc1.subtract(sc2);
     ComplexNumber SResult = sc1_copy.subtractFrom(sc2_copy);
-    
+    //Results should be the same in output
 
     sc1.display();
     SResult.display();

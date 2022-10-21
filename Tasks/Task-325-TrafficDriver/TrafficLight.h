@@ -26,7 +26,7 @@ class TrafficLight
 
     public:
     //Constructor
-    TrafficLight(PinName redPin = TRAF_RED1_PIN, PinName yellowPin = TRAF_YEL1_PIN, PinName greenPin=TRAF_GRN1_PIN); 
+    TrafficLight(PinName redPin = TRAF_RED1_PIN, PinName yellowPin = TRAF_YEL1_PIN, PinName greenPin = TRAF_GRN1_PIN); 
 
     //Destructor
     ~TrafficLight();
