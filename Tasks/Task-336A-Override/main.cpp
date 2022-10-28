@@ -1,5 +1,6 @@
 #include "DoubleNumber.hpp"
 #include "ComplexNumber.hpp"
+#include <ostream>
 
 int main()
 {
@@ -27,6 +28,8 @@ int main()
     //TODO - write an overloaded + operator
     DoubleNumber sum1 = c0 + c1 + d0 + d1;
     cout << sum1 << endl;
+    ComplexNumber Csum = c0 + c1;
+    cout << "The complex sum is: " << Csum << endl;
 
     while (true) {
 
