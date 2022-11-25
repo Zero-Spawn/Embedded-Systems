@@ -18,6 +18,9 @@ DigitalIn button(USER_BUTTON);
 AnalogIn pot(AN_POT_PIN);
 LCD_16X2_DISPLAY disp;
 
+//Mutex Lock 
+Mutex CounterLock;
+
 //Additional Threads
 Thread t1;
 Thread t2;
@@ -31,6 +34,7 @@ void countUp()
     //RED MEANS THE COUNT UP FUNCTION IS IN ITS CRITICAL SECTION
     green_led = 1;
     for (unsigned int n=0; n<N; n++) {
+        CounterLock.lock();
         counter++; 
         counter++;
         counter++;
@@ -40,7 +44,8 @@ void countUp()
         counter++;
         counter++;
         counter++;
-        counter++;           
+        counter++;         
+        CounterLock.unlock();  
     }  
     green_led = 0; 
     
@@ -52,6 +57,7 @@ void countDown()
     //YELLOW MEANS THE COUNT DOWN FUNCTION IS IN ITS CRITICAL SECTION
     yellow_led = 1;
     for (unsigned int n=0; n<N; n++) {
+        CounterLock.lock();
         counter--;
         counter--;
         counter--;
@@ -61,7 +67,8 @@ void countDown()
         counter--;
         counter--;
         counter--;
-        counter--;           
+        counter--;         
+        CounterLock.unlock();  
     }
     yellow_led = 0;
     

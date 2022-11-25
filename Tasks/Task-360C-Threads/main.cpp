@@ -16,7 +16,7 @@ int main() {
     t1.start(task1);
     t2.start(task2);
     
-    //t1.set_priority(osPriorityRealtime);  //Try this
+    t2.set_priority(osPriorityRealtime);  //Try this
 
     //Wait for t1 and t2 to end (which they never do)
     t1.join();
@@ -48,9 +48,11 @@ void task2() {
     printf("Unblocked - let's go\n");
 
     while(true) {
+        
         button2.waitForPress();         //Blocks in the WAITING state 
         ThisThread::sleep_for(50ms);    //Blocks in the WAITING state
         button2.waitForRelease();       //Blocks in the WAITING state
+        //This ^ code is another way to debounce a switch
         green_led = !green_led;         
         ThisThread::sleep_for(50ms);    //Blocks in the WAITING state
     }    
