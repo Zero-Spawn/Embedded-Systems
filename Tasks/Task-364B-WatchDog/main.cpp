@@ -30,11 +30,10 @@ void isAlive(THREADHEALTH th)
 }
 
 //Threads
-Thread t1, t2;
+Thread t1, t2, t3;
 
 //Locks
-Mutex m1;
-Mutex m2;
+Mutex m1, m2, m3;
 
 #define TIMEOUT_MS 10000
 int main() {
@@ -102,5 +101,6 @@ void task2()
         m2.unlock();
     }    
 }
+
 
 
